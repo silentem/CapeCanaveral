@@ -12,14 +12,55 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".gitRebase.GitRebaseActivity">
-        </activity>
-        <activity android:name=".customView.CustomTestViewActivity">
+        <activity
+                android:name=".activityMainfestTags.launchmode.LaunchModeStandartActivity"
+                android:label="@string/title_activity_launch_mode_standart"
+                android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+                android:name=".activityMainfestTags.launchmode.LaunchModeSingleTaskActivity"
+                android:label="@string/title_activity_launch_mode_single_task"
+                android:launchMode="singleTask"
+                android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activityMainfestTags.launchmode.LaunchModeSingleTopActivity"
+                android:label="@string/title_activity_launch_mode"
+                android:launchMode="singleTop"
+                android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activityMainfestTags.allowtaskreparenting.AllowTaskReparentingActivity"
+                android:label="@string/title_activity_allow_task_reparenting"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".activityMainfestTags.allowEmbeded.BubbleAllowEmbededActivity"
+                android:allowEmbedded="true"
+                android:label="@string/title_activity_bubble_allow_embeded">
+        </activity>
+        <activity
+                android:name=".activityMainfestTags.allowEmbeded.AllowEmbedActivity"
+                android:label="@string/title_activity_allow_embed">
+        </activity>
+        <activity android:name=".gitRebase.GitRebaseActivity">
+        </activity>
+        <activity android:name=".customView.CustomTestViewActivity">
         </activity>
         <activity android:name=".rx.RxCh1Activity">
         </activity>
