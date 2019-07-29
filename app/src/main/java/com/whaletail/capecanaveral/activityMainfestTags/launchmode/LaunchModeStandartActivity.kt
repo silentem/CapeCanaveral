@@ -3,12 +3,10 @@ package com.whaletail.capecanaveral.activityMainfestTags.launchmode
 import android.app.ActivityManager
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity;
 import com.whaletail.capecanaveral.R
 import com.whaletail.capecanaveral.base.BaseActivity
-
 import kotlinx.android.synthetic.main.activity_launch_mode_standart.*
+import kotlinx.android.synthetic.main.content_launch_mode_standart.*
 import org.jetbrains.anko.info
 
 class LaunchModeStandartActivity : BaseActivity() {
@@ -19,6 +17,13 @@ class LaunchModeStandartActivity : BaseActivity() {
         setSupportActionBar(toolbar)
 
         info { "From onCreate ${intent?.getStringExtra("message")}" }
+
+        b_reparenting.setOnClickListener {
+
+            startActivity(Intent(this, ReparentingActivity::class.java).apply {
+                putExtra("message", "message")
+            })
+        }
 
         fab.setOnClickListener { view ->
             info { "Task id: $taskId" }
