@@ -15,4 +15,7 @@
     <string name="title_activity_launch_mode">LaunchModeActivity</string>
     <string name="title_activity_launch_mode_single_task">LaunchModeSingleTaskActivity</string>
     <string name="title_activity_launch_mode_standart">LaunchModeStandartActivity</string>
+    <string name="title_activity_config_changes">ConfigChangesActivity</string>
+    <string name="title_activity_document_launch_mode">DocumentLaunchModeActivity</string>
+    <string name="title_activity_parent_name">ParentActivityNameActivity</string>
 </resources>

@@ -5,22 +5,59 @@
 
     <application
             android:allowBackup="true"
+            android:banner="@drawable/ic_launcher_background"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:banner="@drawable/ic_launcher_background"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
+                android:name=".activityMainfestTags.parentactivityname.ParentActivityNameActivity"
+                android:label="@string/title_activity_parent_name"
+                android:parentActivityName=".activityMainfestTags.documentlaunchmode.DocumentLaunchModeActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activityMainfestTags.launchmode.LaunchModeStandartActivity" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activityMainfestTags.documentlaunchmode.DocumentLaunchModeActivity"
+                android:documentLaunchMode="never"
+                android:label="@string/title_activity_document_launch_mode"
+                android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activityMainfestTags.configchanges.ConfigChangesActivity"
+                android:configChanges="orientation|keyboardHidden|locale"
+                android:label="@string/title_activity_config_changes"
+                android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
                 android:name=".activityMainfestTags.launchmode.ReparentingActivity"
-                android:taskAffinity="different.taskContainer"
-                android:allowTaskReparenting="true">
+                android:allowTaskReparenting="true"
+                android:taskAffinity="different.taskContainer">
         </activity>
         <activity
                 android:name=".activityMainfestTags.launchmode.LaunchModeStandartActivity"
                 android:label="@string/title_activity_launch_mode_standart"
-                android:clearTaskOnLaunch="false"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

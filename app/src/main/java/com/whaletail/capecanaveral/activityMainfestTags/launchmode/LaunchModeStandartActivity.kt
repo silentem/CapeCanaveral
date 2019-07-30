@@ -1,13 +1,22 @@
 package com.whaletail.capecanaveral.activityMainfestTags.launchmode
 
-import android.app.ActivityManager
 import android.content.Intent
+import android.media.RingtoneManager
+import android.os.Build
 import android.os.Bundle
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import com.whaletail.capecanaveral.R
+import com.whaletail.capecanaveral.activityMainfestTags.parentactivityname.ParentActivityNameActivity
 import com.whaletail.capecanaveral.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_launch_mode_standart.*
 import kotlinx.android.synthetic.main.content_launch_mode_standart.*
 import org.jetbrains.anko.info
+import android.app.*
+import androidx.core.app.TaskStackBuilder
+import com.whaletail.capecanaveral.activityMainfestTags.documentlaunchmode.DocumentLaunchModeActivity
+
 
 class LaunchModeStandartActivity : BaseActivity() {
 
@@ -20,15 +29,15 @@ class LaunchModeStandartActivity : BaseActivity() {
 
         b_reparenting.setOnClickListener {
 
-            startActivity(Intent(this, ReparentingActivity::class.java).apply {
-                putExtra("message", "message")
-            })
+            val intent = Intent(this, ParentActivityNameActivity::class.java)
+
+            TaskStackBuilder.create(this)
+                .addNextIntentWithParentStack(intent)
+                .startActivities()
         }
 
         fab.setOnClickListener { view ->
-            info { "Task id: $taskId" }
-            getActivityBackStack()
-            startActivity(Intent(this, LaunchModeSingleTaskActivity::class.java).apply {
+            startActivity(Intent(this, LaunchModeStandartActivity::class.java).apply {
                 putExtra("message", "message")
             })
         }
