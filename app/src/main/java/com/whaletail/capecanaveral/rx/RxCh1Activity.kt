@@ -1,7 +1,7 @@
 package com.whaletail.capecanaveral.rx
 
+import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
 import android.os.Bundle
@@ -10,6 +10,7 @@ import androidx.print.PrintHelper
 import com.whaletail.capecanaveral.R
 import com.whaletail.capecanaveral.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_rx_ch1.*
+import org.jetbrains.anko.info
 
 
 class RxCh1Activity : BaseActivity() {
@@ -22,6 +23,12 @@ class RxCh1Activity : BaseActivity() {
             val bitmapFromView = getBitmapFromView(ll_asdf)
             iv_asdf.setImageBitmap(bitmapFromView)
             doPhotoPrint(bitmapFromView)
+        }
+
+
+        if (Intent.ACTION_VIEW == intent.action) {
+            val uri = intent.data
+            info { uri.toString() }
         }
 
     }

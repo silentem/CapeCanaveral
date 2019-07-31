@@ -13,13 +13,54 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
+                android:name=".activityMainfestTags.windowsoftinputmode.WindowSoftInputModeActivity"
+                android:label="@string/title_activity_window_soft_input_mode"
+                android:windowSoftInputMode="adjustPan|stateVisible"
+                android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activityMainfestTags.relinquishactivity.RelinquishActivityActivity"
+                android:label="@string/title_activity_relinquish_activity"
+                android:launchMode="singleTask"
+                android:relinquishTaskIdentity="true"
+                android:taskAffinity=""
+                android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                        android:host="sportbank.com.ua"
+                        android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".activityMainfestTags.persistablemode.PersistableModeActivity"
+                android:label="@string/title_activity_persistable_mode"
+                android:persistableMode="persistAcrossReboots"
+                android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
                 android:name=".activityMainfestTags.parentactivityname.ParentActivityNameActivity"
                 android:label="@string/title_activity_parent_name"
                 android:parentActivityName=".activityMainfestTags.documentlaunchmode.DocumentLaunchModeActivity"
                 android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".activityMainfestTags.launchmode.LaunchModeStandartActivity" />
+                    android:value=".activityMainfestTags.launchmode.LaunchModeStandartActivity"/>
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

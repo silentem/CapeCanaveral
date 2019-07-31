@@ -18,4 +18,7 @@
     <string name="title_activity_config_changes">ConfigChangesActivity</string>
     <string name="title_activity_document_launch_mode">DocumentLaunchModeActivity</string>
     <string name="title_activity_parent_name">ParentActivityNameActivity</string>
+    <string name="title_activity_persistable_mode">PersistableModeActivity</string>
+    <string name="title_activity_relinquish_activity">RelinquishActivityActivity</string>
+    <string name="title_activity_window_soft_input_mode">WindowSoftInputModeActivity</string>
 </resources>
