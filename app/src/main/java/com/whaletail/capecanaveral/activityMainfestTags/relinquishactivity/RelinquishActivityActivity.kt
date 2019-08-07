@@ -1,6 +1,7 @@
 package com.whaletail.capecanaveral.activityMainfestTags.relinquishactivity
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
@@ -21,6 +22,8 @@ class RelinquishActivityActivity : BaseActivity() {
         button.setOnClickListener {
             startActivity(Intent(this, RxCh1Activity::class.java).apply {
                 putExtra("message", "Hello")
+                action = Intent.ACTION_CALL
+                intent.data = Uri.EMPTY
 
             })
         }
