@@ -67,8 +67,8 @@ class ItemDecoratorDecorator(val context: Context) : RecyclerView.ItemDecoration
         textView.setPadding(paddingStart, paddingTop, paddingEnd, paddingBottom)
         return textView
 
-        //return StaticLayout.Builder.obtain(text,0, text.length, paint, 0).build()
-        //return StaticLayout(dateString, paint, width, Layout.Alignment.ALIGN_CENTER, 1f, 0f, false)
+        //return StaticLayout.Builder.obtain(text,0, text.length, initPaint, 0).build()
+        //return StaticLayout(dateString, initPaint, width, Layout.Alignment.ALIGN_CENTER, 1f, 0f, false)
     }
 
 

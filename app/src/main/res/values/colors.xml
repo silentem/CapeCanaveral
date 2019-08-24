@@ -3,4 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="customCoordinatorLayout_bottomSheet">#80FFB300</color>
+    <color name="customCoordinatorLayout_centerView">#805E35B1</color>
+    <color name="customCoordinatorLayout_card">#8043A047</color>
+
+
+    <color name="progress_gray">#FFD8D8D8</color>
+    <color name="progress_gray_dark">#FF383838</color>
+    <color name="default_blue_light">#ff33b5e5</color>
 </resources>

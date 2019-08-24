@@ -29,6 +29,75 @@ private fun getRawIncome(salary: Int) =
 class Euler {
 
 
+    //1) usd jul to dec
+    //2) uah deposit jul to dec
+    //3) uah deposit nov to dec
+    //4) usd jul to oct uah deposit nov to dec
+
+    val depositPerc = 17
+
+    val amountPerMonth = 1350
+
+    val julToDec = 6
+
+    val novToDec = 2
+
+    val julToOc = 4
+
+    val monthToUSDRate = mapOf(
+        "JUL" to 25.31,
+        "AUG" to 25.81,
+        "SEP" to 26.31,
+        "OCT" to 26.81,
+        "NOV" to 27.31,
+        "DEC" to 28.31
+    )
+
+    @Test
+    fun calculateBenefits() {
+
+        calcUSDJulToDec()
+//        uahDepositJulToDec()
+
+    }
+
+    //1)
+    fun calcUSDJulToDec() {
+        println("________________________________________________________________________________________")
+
+        val decRate = monthToUSDRate.getValue("DEC")
+        var totalBenefit = 0
+        monthToUSDRate.forEach { (month, rate) ->
+            println("---$month---")
+            val benefit = amountPerMonth * decRate - amountPerMonth * rate
+            totalBenefit += benefit.toInt()
+            println("Benefit: $benefit")
+            println("Accumulated benefit: $totalBenefit")
+        }
+        println("Total benefit: $totalBenefit")
+        println("________________________________________________________________________________________")
+    }
+
+    //2)
+    fun uahDepositJulToDec() {
+        val usdAmount = amountPerMonth
+        var uahAmount = (usdAmount * monthToUSDRate.getValue("JUL")).toInt()
+        println("________________________________________________________________________________________")
+        println("USD amount on JUL will be $usdAmount; UAH amount on JUL will be $uahAmount")
+        for (i in 1..julToDec) {
+            val depositBenefitPerMonth = calcDepositBenefitForMonth(uahAmount, depositPerc)
+            println("deposit benefit on $i month will be $depositBenefitPerMonth")
+            uahAmount += depositBenefitPerMonth + (usdAmount * monthToUSDRate.getValue("JUL")).toInt()
+        }
+        println("USD amount on DEC will be ${uahAmount / monthToUSDRate.getValue("DEC")}; UAH amount on JUL will be $uahAmount")
+        println("UAH benefit on DEC will be ${uahAmount - usdAmount * monthToUSDRate.getValue("DEC") * julToDec}")
+        println("________________________________________________________________________________________")
+    }
+
+    private fun calcDepositBenefitForMonth(depositAmount: Int, depositPerc: Int) =
+        (depositAmount * depositPerc / 100 * 0.8 / 12).toInt()
+
+
     @Test
     fun calculateDeposit() {
 

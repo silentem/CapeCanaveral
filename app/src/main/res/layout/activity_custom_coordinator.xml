@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.whaletail.capecanaveral.customcoordinator.CustomCoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".customcoordinator.CustomCoordinatorActivity">
+
+
+    <View
+            android:layout_width="match_parent"
+            android:tag="centerView"
+            android:background="@color/customCoordinatorLayout_centerView"
+            android:layout_gravity="center"
+            android:layout_height="100dp"/>
+    <View
+            android:layout_width="match_parent"
+            android:tag="card"
+            android:layout_margin="16dp"
+            android:background="@color/customCoordinatorLayout_card"
+            android:layout_height="200dp"/>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="bottomSheet"
+            android:background="@color/customCoordinatorLayout_bottomSheet"
+            app:behavior_hideable="false"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"/>
+
+
+</com.whaletail.capecanaveral.customcoordinator.CustomCoordinatorLayout>
