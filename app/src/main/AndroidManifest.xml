@@ -4,8 +4,13 @@
         package="com.whaletail.capecanaveral">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <application
+            android:name=".App"
             android:allowBackup="true"
             android:banner="@drawable/ic_launcher_background"
             android:icon="@mipmap/ic_launcher"
@@ -14,33 +19,44 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".arcprogress.ArcProgressActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <service
+                android:name=".boundService.BoundService"
+                android:enabled="true"
+                android:exported="false"></service>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
-        <activity android:name=".customcoordinator.CustomCoordinatorActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".coroutines.CoroutinesActivity">
+        <activity android:name=".boundService.BoundServiceActivity" />
+        <activity android:name=".dynamic.DynamicActivity" />
+        <activity android:name=".contrast.ContrastActivity" />
+        <activity android:name=".generallist.GeneralListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".itemDecorator.ItemDecoratorActivity">
+        <activity android:name=".contentResolver.ContentResolverActivity" />
+
+        <receiver
+                android:name=".intenttest.ChooserBroadcast"
+                android:exported="false" />
+
+        <activity android:name=".intenttest.IntentTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
+        <activity android:name=".workermanager.WorkerManagerActivity" />
+        <activity android:name=".spananimate.SpanAnimateActivity" />
+        <activity android:name=".arcprogress.ArcProgressActivity" />
+        <activity android:name=".customcoordinator.CustomCoordinatorActivity" />
+        <activity android:name=".coroutines.CoroutinesActivity" />
+        <activity android:name=".itemDecorator.ItemDecoratorActivity" />
 
         <receiver
                 android:name=".connectioncheckbroadcast.ConnectionReceiver"
@@ -50,24 +66,12 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".connectioncheckbroadcast.ConnectionCheckBroadcastActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".connectioncheckbroadcast.ConnectionCheckBroadcastActivity" />
         <activity
                 android:name=".activityMainfestTags.windowsoftinputmode.WindowSoftInputModeActivity"
                 android:label="@string/title_activity_window_soft_input_mode"
                 android:theme="@style/AppTheme.NoActionBar"
-                android:windowSoftInputMode="adjustPan|stateVisible">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+                android:windowSoftInputMode="adjustPan|stateVisible" />
         <activity
                 android:name=".activityMainfestTags.relinquishactivity.RelinquishActivityActivity"
                 android:label="@string/title_activity_relinquish_activity"
@@ -90,13 +94,7 @@
                 android:name=".activityMainfestTags.persistablemode.PersistableModeActivity"
                 android:label="@string/title_activity_persistable_mode"
                 android:persistableMode="persistAcrossReboots"
-                android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+                android:theme="@style/AppTheme.NoActionBar" />
         <activity
                 android:name=".activityMainfestTags.parentactivityname.ParentActivityNameActivity"
                 android:label="@string/title_activity_parent_name"
@@ -105,12 +103,6 @@
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".activityMainfestTags.launchmode.LaunchModeStandartActivity" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
                 android:name=".activityMainfestTags.documentlaunchmode.DocumentLaunchModeActivity"
@@ -119,82 +111,59 @@
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
         <activity
                 android:name=".activityMainfestTags.configchanges.ConfigChangesActivity"
                 android:configChanges="orientation|keyboardHidden|locale"
                 android:label="@string/title_activity_config_changes"
-                android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+                android:theme="@style/AppTheme.NoActionBar" />
         <activity
                 android:name=".activityMainfestTags.launchmode.ReparentingActivity"
                 android:allowTaskReparenting="true"
-                android:taskAffinity="different.taskContainer"></activity>
+                android:taskAffinity="different.taskContainer" />
         <activity
                 android:name=".activityMainfestTags.launchmode.LaunchModeStandartActivity"
                 android:label="@string/title_activity_launch_mode_standart"
-                android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+                android:theme="@style/AppTheme.NoActionBar" />
         <activity
                 android:name=".activityMainfestTags.launchmode.LaunchModeSingleTaskActivity"
                 android:label="@string/title_activity_launch_mode_single_task"
                 android:launchMode="singleTask"
                 android:taskAffinity="different.taskContainer"
-                android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+                android:theme="@style/AppTheme.NoActionBar" />
         <activity
                 android:name=".activityMainfestTags.launchmode.LaunchModeSingleTopActivity"
                 android:label="@string/title_activity_launch_mode"
                 android:launchMode="singleTop"
-                android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+                android:theme="@style/AppTheme.NoActionBar" />
         <activity
                 android:name=".activityMainfestTags.allowtaskreparenting.AllowTaskReparentingActivity"
                 android:label="@string/title_activity_allow_task_reparenting"
-                android:theme="@style/AppTheme.NoActionBar"></activity>
+                android:theme="@style/AppTheme.NoActionBar" />
         <activity
                 android:name=".activityMainfestTags.allowEmbeded.BubbleAllowEmbededActivity"
                 android:allowEmbedded="true"
-                android:label="@string/title_activity_bubble_allow_embeded"></activity>
+                android:label="@string/title_activity_bubble_allow_embeded" />
         <activity
                 android:name=".activityMainfestTags.allowEmbeded.AllowEmbedActivity"
-                android:label="@string/title_activity_allow_embed"></activity>
-        <activity android:name=".gitRebase.GitRebaseActivity"></activity>
-        <activity android:name=".customView.CustomTestViewActivity"></activity>
-        <activity android:name=".rx.RxCh1Activity"></activity>
-        <activity android:name=".rx.ReplaySubjectExampleActivity"></activity>
+                android:label="@string/title_activity_allow_embed" />
+        <activity android:name=".gitRebase.GitRebaseActivity" />
+        <activity android:name=".customView.CustomTestViewActivity" />
+        <activity android:name=".rx.RxCh1Activity" />
+        <activity android:name=".rx.ReplaySubjectExampleActivity" />
 
         <service
                 android:name=".count.ObservableService"
                 android:enabled="true"
-                android:exported="true"></service>
+                android:exported="true" />
 
-        <activity android:name=".count.CountActivity"></activity>
+        <service
+                android:name=".boundService.MessengerService"
+                android:enabled="true"
+                android:exported="true" />
+
+        <activity android:name=".count.CountActivity" />
     </application>
 
 </manifest>
